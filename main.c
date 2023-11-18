@@ -1,0 +1,8 @@
+#include "baralho.h"
+
+int main(){
+
+
+    
+    return 0;
+}
