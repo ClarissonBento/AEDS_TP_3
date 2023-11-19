@@ -5,17 +5,23 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-typedef enum {VERDE, AMARELO, VERMELHO, AZUL} Cores;
-typedef enum {NUMERICA, PULAR, VOLTAR, MAIS_DOIS, MAIS_QUATRO, CORINGA} TipoCarta;
+typedef enum {VERDE, AMARELO, VERMELHO, AZUL, PRETO} Cores;
 
 typedef struct {
+    int numero;
     Cores cor;
-    TipoCarta tipo;
+    int i_carta;
 } Carta;
 
-void criaBaralho(Carta baralho[NUM_CARTAS]);
-void embaralha(Carta baralho[NUM_CARTAS]);
-void exibeBaralho(Carta baralho[NUM_CARTAS]);
+typedef struct {
+    Carta *cartas[NUM_CARTAS];
+} Baralho;
+
+void criaCarta(Carta* carta, int numero, Cores cor, int i_carta);
+void criaBaralho(Carta baralho[]);
+void embaralha(Baralho *baralho);
+void exibeBaralho(Carta baralho[]);
 
 #endif
