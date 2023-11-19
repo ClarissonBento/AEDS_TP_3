@@ -23,7 +23,7 @@ typedef struct {
 } Baralho;
 
 typedef struct {
-    Carta cartas_namao[MAO];
+    Carta cartas[MAO];
 }Hand;
 
 

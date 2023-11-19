@@ -45,7 +45,7 @@ void exibeMao(Hand *mao){
 
     for (int i = 0; i < MAO; i++){
 
-        printf("[%.2i] - %s %s\n", mao->cartas_namao[i].i_carta, valor[mao->cartas_namao[i].numero], cores[mao->cartas_namao[i].cor]);
+        printf("[%.2i] - %s %s\n", mao->cartas[i].i_carta, valor[mao->cartas[i].numero], cores[mao->cartas[i].cor]);
     }
 }
 
@@ -55,7 +55,7 @@ void exibeCartas(Baralho *baralho, Hand *mao, int N){
 
     if (N > 0 && N <= 10){
         for (int i = 0; i < MAO; i++){
-            printf("[%.2i] - %s %s\n", mao->cartas_namao[i].i_carta, valor[mao->cartas_namao[i].numero], cores[mao->cartas_namao[i].cor]);
+            printf("[%.2i] - %s %s\n", mao->cartas[i].i_carta, valor[mao->cartas[i].numero], cores[mao->cartas[i].cor]);
         }
     }else{
         for (int i = 0; i < baralho->num_cartas; i++){
@@ -86,8 +86,13 @@ void embaralharArray(Baralho *baralho, int tamanho) {
 
 void puxaDez(Baralho *baralho, Hand *mao){
 
+    if (baralho->num_cartas < 10){
+        printf("Cartas insuficientes no baralho\n");
+        exit(0);
+    }
+
     for (int i = 0; i < MAO; i++){
-        mao->cartas_namao[i] = baralho->cartas[i];
+        mao->cartas[i] = baralho->cartas[i];
 
         for (int j = i; j < baralho->num_cartas - 1; j++) {
             baralho->cartas[j] = baralho->cartas[j + 1];

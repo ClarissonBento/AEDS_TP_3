@@ -1,5 +1,7 @@
 #include "baralho.h"
 
+void bubbleSort(Hand *mao);
+
 int main(){
     Baralho baralho;
     Hand maozinha;
@@ -21,6 +23,12 @@ int main(){
 
     printf("\nCartas no baralho: %i\n", baralho.num_cartas);
 
+    printf("\nMÃO ORDENADA\n");
+    bubbleSort(&maozinha);
+    exibeMao(&maozinha);
+
+    printf("\nCartas no baralho: %i\n", baralho.num_cartas);
+/*
     printf("\nSEGUNDA MÃO\n");
     puxaDez(&baralho, &maozinha);
     exibeMao(&maozinha);
@@ -39,9 +47,15 @@ int main(){
 
     printf("\nCartas no baralho: %i\n", baralho.num_cartas);
 
-    //printf("\nQUINTA MÃO\n");
-    //puxaDez(&baralho, &maozinha);
-    //exibeMao(&maozinha);
+    printf("\nQUINTA MÃO\n");
+    puxaDez(&baralho, &maozinha);
+    exibeMao(&maozinha);
+
+    printf("\nCartas no baralho: %i\n", baralho.num_cartas);
+
+    printf("\nSEXTA MÃO\n");
+    puxaDez(&baralho, &maozinha);
+    exibeMao(&maozinha);
 
     printf("\nCartas no baralho: %i\n", baralho.num_cartas);
 
@@ -49,6 +63,6 @@ int main(){
     exibeBaralho(&baralho);
 
     printf("\nCartas no baralho: %i\n", baralho.num_cartas);
-
+*/
     return 0;
 }
