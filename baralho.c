@@ -1,14 +1,6 @@
 #include "baralho.h"
 
-void criaCarta(Carta* carta, int numero, Cores cor, int i_carta){
-    carta->numero = numero;
-    carta->cor = cor;
-    carta->i_carta = i_carta;
-}
-
 void criaBaralho(Baralho *baralho){
-    //Carta *carta;
-    
     int index = 0;
 
     for (int cor = VERDE; cor <= AZUL; cor++){
@@ -17,11 +9,10 @@ void criaBaralho(Baralho *baralho){
             baralho->cartas[index].cor = cor;
             baralho->cartas[index].i_carta = index;
 
-            //criaCarta(carta, numero, cor, index);
             index++;
         }
     }
-
+    // esse index é só uma flag pra checagem
     printf("\nINDEX = %i\n", index);
 
     for (int i = 13; i <= 16; i++){
@@ -33,19 +24,75 @@ void criaBaralho(Baralho *baralho){
     }
     
     printf("INDEX = %i\n\n", index);
+    baralho->num_cartas = index;
 
 }
 
-void embaralha(Baralho *baralho){
-
-}
-
+// Exibe todas as 56 cartas
 void exibeBaralho(Baralho *baralho){
     char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
     char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
 
-    for (int i = 0; i < NUM_CARTAS; i++){
-        
+    for (int i = 0; i < baralho->num_cartas; i++){
+
         printf("[%.2i] - %s %s\n", baralho->cartas[i].i_carta, valor[baralho->cartas[i].numero], cores[baralho->cartas[i].cor]);
     }
+}
+
+void exibeMao(Hand *mao){
+    char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
+    char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
+
+    for (int i = 0; i < MAO; i++){
+
+        printf("[%.2i] - %s %s\n", mao->cartas_namao[i].i_carta, valor[mao->cartas_namao[i].numero], cores[mao->cartas_namao[i].cor]);
+    }
+}
+
+void exibeCartas(Baralho *baralho, Hand *mao, int N){
+    char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
+    char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
+
+    if (N > 0 && N <= 10){
+        for (int i = 0; i < MAO; i++){
+            printf("[%.2i] - %s %s\n", mao->cartas_namao[i].i_carta, valor[mao->cartas_namao[i].numero], cores[mao->cartas_namao[i].cor]);
+        }
+    }else{
+        for (int i = 0; i < baralho->num_cartas; i++){
+            printf("[%.2i] - %s %s\n", baralho->cartas[i].i_carta, valor[baralho->cartas[i].numero], cores[baralho->cartas[i].cor]);
+        }
+    }
+}
+
+void trocar(Carta *a, Carta *b) {
+    Carta temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Tetando usar o algoritmo de knuth pra randomizar (fisher-yates)
+void embaralharArray(Baralho *baralho, int tamanho) {
+    srand(time(NULL));
+
+    // Começar do último elemento e ir até o primeiro
+    for (int i = tamanho - 1; i > 0; i--) {
+        // Gerar um índice aleatório entre 0 e i (inclusive)
+        int j = rand() % (i + 1);
+
+        // Trocar os elementos nos índices i e j
+        trocar(&baralho->cartas[i], &baralho->cartas[j]);
+    }
+}
+
+void puxaDez(Baralho *baralho, Hand *mao){
+
+    for (int i = 0; i < MAO; i++){
+        mao->cartas_namao[i] = baralho->cartas[i];
+
+        for (int j = i; j < baralho->num_cartas - 1; j++) {
+            baralho->cartas[j] = baralho->cartas[j + 1];
+        }
+        baralho->num_cartas--; // Atualizar o número de cartas no baralho
+    }
+    
 }
