@@ -6,14 +6,37 @@ int main(){
     Baralho baralho;
     Hand maozinha;
 
+    printf("1- Interativo\n2- Por arquivo\nQual opção? ");
+    int aux;
+    scanf("%i", &aux);
+    if (aux == 1){
+        criaBaralho(&baralho);
+        embaralharArray(&baralho, NUM_CARTAS);
+
+        printf("Quantas mãos de cartas? ");
+        scanf("%i", &aux);
+
+        for (int i = 0; i < aux; i++){
+            puxaDez(&baralho, &maozinha);
+            printf("\n### %iº MÃO DE CARTAS ###\n", i+1);
+            exibeMao(&maozinha);
+            printf("\n### MÃO %i ORDENADA ###\n", i+1);
+            bubbleSort(&maozinha);
+            exibeMao(&maozinha);
+        }
+        
+    }
+    
+    
+/*
     criaBaralho(&baralho);
 
     printf("BARALHO INCIAL\n");
-    //exibeCartas(&baralho, &maozinha, NUM_CARTAS);
+    exibeCartas(&baralho, &maozinha, NUM_CARTAS);
 
     printf("\nEMBARALHADO\n");
     embaralharArray(&baralho, NUM_CARTAS);
-    //exibeCartas(&baralho, &maozinha, NUM_CARTAS);
+    exibeCartas(&baralho, &maozinha, NUM_CARTAS);
 
     printf("\nCartas no baralho: %i\n", baralho.num_cartas);
 
@@ -28,7 +51,7 @@ int main(){
     exibeMao(&maozinha);
 
     printf("\nCartas no baralho: %i\n", baralho.num_cartas);
-/*
+
     printf("\nSEGUNDA MÃO\n");
     puxaDez(&baralho, &maozinha);
     exibeMao(&maozinha);

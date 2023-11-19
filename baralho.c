@@ -28,49 +28,13 @@ void criaBaralho(Baralho *baralho){
 
 }
 
-// Exibe todas as 56 cartas
-void exibeBaralho(Baralho *baralho){
-    char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
-    char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
-
-    for (int i = 0; i < baralho->num_cartas; i++){
-
-        printf("[%.2i] - %s %s\n", baralho->cartas[i].i_carta, valor[baralho->cartas[i].numero], cores[baralho->cartas[i].cor]);
-    }
-}
-
-void exibeMao(Hand *mao){
-    char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
-    char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
-
-    for (int i = 0; i < MAO; i++){
-
-        printf("[%.2i] - %s %s\n", mao->cartas[i].i_carta, valor[mao->cartas[i].numero], cores[mao->cartas[i].cor]);
-    }
-}
-
-void exibeCartas(Baralho *baralho, Hand *mao, int N){
-    char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
-    char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
-
-    if (N > 0 && N <= 10){
-        for (int i = 0; i < MAO; i++){
-            printf("[%.2i] - %s %s\n", mao->cartas[i].i_carta, valor[mao->cartas[i].numero], cores[mao->cartas[i].cor]);
-        }
-    }else{
-        for (int i = 0; i < baralho->num_cartas; i++){
-            printf("[%.2i] - %s %s\n", baralho->cartas[i].i_carta, valor[baralho->cartas[i].numero], cores[baralho->cartas[i].cor]);
-        }
-    }
-}
-
 void trocar(Carta *a, Carta *b) {
-    Carta temp = *a;
+    Carta aux = *a;
     *a = *b;
-    *b = temp;
+    *b = aux;
 }
 
-// Tetando usar o algoritmo de knuth pra randomizar (fisher-yates)
+// Tentando usar o algoritmo de knuth pra randomizar (fisher-yates)
 void embaralharArray(Baralho *baralho, int tamanho) {
     srand(time(NULL));
 
@@ -84,6 +48,7 @@ void embaralharArray(Baralho *baralho, int tamanho) {
     }
 }
 
+// Compra 10 cartas pra mão
 void puxaDez(Baralho *baralho, Hand *mao){
 
     if (baralho->num_cartas < 10){
@@ -100,4 +65,26 @@ void puxaDez(Baralho *baralho, Hand *mao){
         baralho->num_cartas--; // Atualizar o número de cartas no baralho
     }
     
+}
+
+// Exibe as cartas atualmente no baralho
+void exibeBaralho(Baralho *baralho){
+    char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
+    char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
+
+    for (int i = 0; i < baralho->num_cartas; i++){
+
+        printf("[%.2i] - %s %s\n", baralho->cartas[i].i_carta, valor[baralho->cartas[i].numero], cores[baralho->cartas[i].cor]);
+    }
+}
+
+// Exibe as 10 cartas atualmente na mão
+void exibeMao(Hand *mao){
+    char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
+    char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
+
+    for (int i = 0; i < MAO; i++){
+
+        printf("[%.2i] - %s %s\n", mao->cartas[i].i_carta, valor[mao->cartas[i].numero], cores[mao->cartas[i].cor]);
+    }
 }
