@@ -16,12 +16,12 @@ typedef struct {
 } Carta;
 
 typedef struct {
-    Carta *cartas[NUM_CARTAS];
+    Carta cartas[NUM_CARTAS];
 } Baralho;
 
 void criaCarta(Carta* carta, int numero, Cores cor, int i_carta);
-void criaBaralho(Carta baralho[]);
+void criaBaralho(Baralho *baralho);
 void embaralha(Baralho *baralho);
-void exibeBaralho(Carta baralho[]);
+void exibeBaralho(Baralho *baralho);
 
 #endif
