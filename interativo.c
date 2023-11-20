@@ -18,14 +18,17 @@ void modo_interativo(){
         puxaDez(&baralho, &maozinha);
         mao_aux = maozinha;
 
-        printf("\n### %iº MÃO DE CARTAS ###\n", i+1); // Mão incial
-        exibeMao(&mao_aux);
+        printf("\n################################");
+        printf("\n####### %iª MÃO DE CARTAS #######\n", i+1);
+        printf("################################\n");
+        printf("\nMão incial:\n");
+        exibeMao(&mao_aux); // Mão inicial
 
-        printf("\n### %iª MÃO ORDENADA ###\n", i+1);
+        //printf("\n##### %iª MÃO ORDENADA #####\n", i+1);
         bubbleSort(&mao_aux);
         exibeMao(&mao_aux);
 
-        mao_aux = maozinha;
+        mao_aux = maozinha; // atribui a mão embaralhada novamente para reordenar
 
         insertSort(&mao_aux);
         exibeMao(&mao_aux);

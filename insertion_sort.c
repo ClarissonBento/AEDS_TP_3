@@ -6,16 +6,18 @@ void insertSort(Hand *mao){
     double elapsed_time;
     start_time = clock();
 
-    int i,j;
+    int i,j, comparacoes = 0, movimentacoes = 0;
     Carta aux;
 
-    for (int i = 1; i < MAO; i++){
+    for (i = 1; i < MAO; i++){
         aux = mao->cartas[i];
         j = i - 1;
 
         while ((j >= 0) && (mao->cartas[j].i_carta > aux.i_carta)){
             mao->cartas[j+1] = mao->cartas[j];
             j--;
+            comparacoes++;
+            movimentacoes++;
         }
         mao->cartas[j+1] = aux;
         
@@ -23,9 +25,9 @@ void insertSort(Hand *mao){
 
     end_time = clock();
     elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
-    printf("\nInsertion Sort");
-    printf("\nTempo gasto: %f segundos\n", elapsed_time);
-    //printf("Comparações = %i\n", comparacoes);
-    //printf("Movimentações = %i\n\n", movimentacoes);
+    printf("\n####### INSERÇÃO #######");
+    printf("\nTempo gasto: %f segundos", elapsed_time);
+    printf("\nComparações: %i", comparacoes);
+    printf("\nMovimentações: %i\n\n", movimentacoes);
 
 }

@@ -6,7 +6,8 @@ void modo_interativo();
 
 int main(){
     
-    printf("1- Interativo\n2- Por arquivo\nQual opção? ");
+    printf("\nModo de execução:\n");
+    printf("\n1- Interativo\n2- Por arquivo (em breve)\n\nQual opção? ");
     int aux;
     scanf("%i", &aux);
     if (aux == 1){

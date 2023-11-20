@@ -24,7 +24,7 @@ typedef struct {
 
 typedef struct {
     Carta cartas[MAO];
-}Hand;
+} Hand;
 
 
 
@@ -35,6 +35,5 @@ void trocar(Carta *a, Carta *b);
 void embaralhaArray(Baralho *baralho, int tamanho);
 void puxaDez(Baralho *baralho, Hand *mao);
 void exibeMao(Hand *mao);
-void exibeCartas(Baralho *baralho, Hand *mao, int N);
 
 #endif
