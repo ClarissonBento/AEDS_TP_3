@@ -13,7 +13,7 @@ void criaBaralho(Baralho *baralho){
         }
     }
     // esse index é só uma flag pra checagem
-    printf("\nINDEX = %i\n", index);
+    //printf("\nINDEX = %i\n", index);
 
     for (int i = 13; i <= 16; i++){
         baralho->cartas[index].numero = i;
@@ -23,7 +23,7 @@ void criaBaralho(Baralho *baralho){
         index++;
     }
     
-    printf("INDEX = %i\n\n", index);
+    //printf("INDEX = %i\n\n", index);
     baralho->num_cartas = index;
 
 }
@@ -35,7 +35,7 @@ void trocar(Carta *a, Carta *b) {
 }
 
 // Tentando usar o algoritmo de knuth pra randomizar (fisher-yates)
-void embaralharArray(Baralho *baralho, int tamanho) {
+void embaralhaArray(Baralho *baralho, int tamanho) {
     srand(time(NULL));
 
     // Começar do último elemento e ir até o primeiro

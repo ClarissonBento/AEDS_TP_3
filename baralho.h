@@ -32,7 +32,7 @@ typedef struct {
 void criaBaralho(Baralho *baralho);
 void exibeBaralho(Baralho *baralho);
 void trocar(Carta *a, Carta *b);
-void embaralharArray(Baralho *baralho, int tamanho);
+void embaralhaArray(Baralho *baralho, int tamanho);
 void puxaDez(Baralho *baralho, Hand *mao);
 void exibeMao(Hand *mao);
 void exibeCartas(Baralho *baralho, Hand *mao, int N);

@@ -1,6 +1,7 @@
 #include "baralho.h"
 
 void bubbleSort(Hand *mao);
+void insertSort(Hand *mao);
 
 int main(){
     Baralho baralho;
@@ -11,7 +12,7 @@ int main(){
     scanf("%i", &aux);
     if (aux == 1){
         criaBaralho(&baralho);
-        embaralharArray(&baralho, NUM_CARTAS);
+        embaralhaArray(&baralho, NUM_CARTAS);
 
         printf("Quantas mãos de cartas? ");
         scanf("%i", &aux);
@@ -21,7 +22,8 @@ int main(){
             printf("\n### %iº MÃO DE CARTAS ###\n", i+1);
             exibeMao(&maozinha);
             printf("\n### MÃO %i ORDENADA ###\n", i+1);
-            bubbleSort(&maozinha);
+            //bubbleSort(&maozinha);
+            insertSort(&maozinha);
             exibeMao(&maozinha);
         }
         
