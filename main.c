@@ -1,8 +1,5 @@
 #include "baralho.h"
-
-void bubbleSort(Hand *mao);
-void insertSort(Hand *mao);
-void modo_interativo();
+#include "ordenadores.h"
 
 int main(){
     
@@ -12,7 +9,10 @@ int main(){
     scanf("%i", &aux);
     if (aux == 1){
         modo_interativo();
+    }else if (aux == 0){
+        ler_arquivo();
     }
+    
     
     
 /*

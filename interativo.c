@@ -1,7 +1,5 @@
 #include "baralho.h"
-
-void bubbleSort(Hand *mao);
-void insertSort(Hand *mao);
+#include "ordenadores.h"
 
 void modo_interativo(){
     Baralho baralho;
