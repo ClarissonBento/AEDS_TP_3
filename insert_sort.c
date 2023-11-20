@@ -23,7 +23,7 @@ void insertSort(Hand *mao){
 
     end_time = clock();
     elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
-    printf("Insertion Sort");
+    printf("\nInsertion Sort");
     printf("\nTempo gasto: %f segundos\n", elapsed_time);
     //printf("Comparações = %i\n", comparacoes);
     //printf("Movimentações = %i\n\n", movimentacoes);

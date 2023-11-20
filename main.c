@@ -2,31 +2,15 @@
 
 void bubbleSort(Hand *mao);
 void insertSort(Hand *mao);
+void modo_interativo();
 
 int main(){
-    Baralho baralho;
-    Hand maozinha;
-
+    
     printf("1- Interativo\n2- Por arquivo\nQual opção? ");
     int aux;
     scanf("%i", &aux);
     if (aux == 1){
-        criaBaralho(&baralho);
-        embaralhaArray(&baralho, NUM_CARTAS);
-
-        printf("Quantas mãos de cartas? ");
-        scanf("%i", &aux);
-
-        for (int i = 0; i < aux; i++){
-            puxaDez(&baralho, &maozinha);
-            printf("\n### %iº MÃO DE CARTAS ###\n", i+1);
-            exibeMao(&maozinha);
-            printf("\n### MÃO %i ORDENADA ###\n", i+1);
-            //bubbleSort(&maozinha);
-            insertSort(&maozinha);
-            exibeMao(&maozinha);
-        }
-        
+        modo_interativo();
     }
     
     

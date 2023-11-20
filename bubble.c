@@ -22,7 +22,8 @@ void bubbleSort(Hand *mao){
 
     end_time = clock();
     elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
-    printf("\nTempo gasto: %f segundos\n", elapsed_time);
+    printf("\nBubbleSort Melhorado\n");
+    printf("Tempo gasto: %f segundos\n", elapsed_time);
     printf("Comparações = %i\n", comparacoes);
     printf("Movimentações = %i\n\n", movimentacoes);
     
