@@ -1,6 +1,11 @@
 #include "baralho.h"
 
 void insertSort(Hand *mao){
+
+    clock_t start_time, end_time;
+    double elapsed_time;
+    start_time = clock();
+
     int i,j;
     Carta aux;
 
@@ -16,20 +21,11 @@ void insertSort(Hand *mao){
         
     }
 
-}
+    end_time = clock();
+    elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Insertion Sort");
+    printf("\nTempo gasto: %f segundos\n", elapsed_time);
+    //printf("Comparações = %i\n", comparacoes);
+    //printf("Movimentações = %i\n\n", movimentacoes);
 
-/*
-void Insercao (Item* v, int n ){
-    int i,j;
-    Item aux;
-    for (i = 1; i < n; i++){
-        aux = v[i];
-        j = i - 1;
-        while ((j >= 0) && (aux.Chave < v[j].Chave)){
-            v[j + 1] = v[j];
-            j--;
-        }
-        v[j + 1] = aux;
-    }
 }
-*/
