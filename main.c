@@ -10,7 +10,7 @@ int main(){
     if (aux == 1){
         modo_interativo();
     }else if (aux == 0){
-        ler_arquivo();
+        modo_arquivo();
     }
     
     

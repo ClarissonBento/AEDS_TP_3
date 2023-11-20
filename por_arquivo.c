@@ -1,7 +1,7 @@
 #include "baralho.h"
 #include "ordenadores.h"
 
-void ler_arquivo(){
+void modo_arquivo(){
     FILE *arquivo;
     fopen("TESTE.txt", "r");
 
