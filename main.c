@@ -9,9 +9,9 @@ int main(){
     scanf("%i", &aux);
     if (aux == 1){
         modo_interativo();
-    }else if (aux == 0){
+    }else if (aux == 2){
         modo_arquivo();
-    }
+    }else printf("\nInválido bobão\n");
     
     
     
