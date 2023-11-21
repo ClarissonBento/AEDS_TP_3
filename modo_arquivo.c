@@ -57,7 +57,7 @@ void modo_arquivo(){
     fclose(arquivo);
 }
 
-// Função que lê as cartas especiais "Pular" / "Voltar" e converte em numero 
+// Função que lê as cartas especiais "Pular"/"Voltar/"+2"/"+4"/"Coriga" e converte em numero 
 int extraiTipo(char tipo[20]){
     int numero;
 
