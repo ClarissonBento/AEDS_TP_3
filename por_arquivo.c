@@ -11,8 +11,7 @@ void modo_arquivo(){
     int N;
     int numero;
     char cor[20];
-    char especial[20];
-    char teste;
+    char tipo[20];
 
     fscanf(arquivo, "%i", &N);
     printf("\nMãos de cartas: %i\n\n", N);
@@ -21,29 +20,8 @@ void modo_arquivo(){
         printf("[%i]: ", i);
         for (int j = 0; j < 10; j++){
 
-            while ((teste = fgetc(arquivo)) != EOF){
-
-                if (teste == '(') {
-                    // Encontrou o "(", agora lê caractere por caractere até encontrar ")"
-                    while ((teste = fgetc(arquivo)) != EOF){
-
-                        if (teste == ')'){
-
-                            //printf("Encontrou os parênteses.\n");
-                            break;
-                        }
-
-                        // Faça algo com o caractere lido entre "(" e ")"
-                        printf("%c", teste);
-                    }
-                    break; // Sai do loop externo após encontrar ")"
-                }   
-            }
-
-/*
-            fscanf(arquivo, " (%19s %i) ", cor, &numero);
-            fscanf(arquivo, " (%19s %s) ", cor, especial);
-            printf("%s %i, ", cor, numero);
+            fscanf(arquivo, " %s %s ", cor, tipo);
+            printf("%s ", cor);
 
             if(strcmp(cor, "verde") == 0){
                 mao.cartas[j].i_carta = numero;
@@ -60,7 +38,7 @@ void modo_arquivo(){
             if(strcmp(cor, "azul") == 0){
                 mao.cartas[j].i_carta = numero + 40;
                 mao.cartas[j].cor = AZUL;
-            }*/
+            }
         }
         printf("\n");
 
