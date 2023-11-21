@@ -35,5 +35,13 @@ void trocar(Carta *a, Carta *b);
 void embaralhaArray(Baralho *baralho, int tamanho);
 void puxaDez(Baralho *baralho, Hand *mao);
 void exibeMao(Hand *mao);
+void imprimeResultados(Hand mao, int N);
+void modo_interativo();
+void modo_arquivo();
+
+// Algoritmos de ordenação
+void bubbleSort(Hand *mao);
+void insertSort(Hand *mao);
+void selectionSort(Hand *mao);
 
 #endif

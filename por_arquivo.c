@@ -1,5 +1,4 @@
 #include "baralho.h"
-#include "ordenadores.h"
 
 int extraiTipo(char tipo[20]);
 
@@ -7,14 +6,13 @@ void modo_arquivo(){
     FILE *arquivo;
     arquivo = fopen("TESTE.txt", "r");
 
-    Baralho baralho;
-    Hand mao, mao_aux;
+    Hand mao;
 
     int N, numero;
     char cor[20], tipo[20];
 
     fscanf(arquivo, "%i", &N);
-    printf("\nMãos de cartas: %i\n\n", N);
+    printf("\nMãos de cartas: %i\n", N);
 
     for (int i = 0; i < N; i++){
         
@@ -54,25 +52,8 @@ void modo_arquivo(){
             }
 
         }
-
-        mao_aux = mao;
-
-        printf("\n################################");
-        printf("\n####### %iª MÃO DE CARTAS #######\n", i+1);
-        printf("################################\n");
-        printf("\nMão incial:\n");
-        exibeMao(&mao_aux); // Mão inicial
-
-        //printf("\n##### %iª MÃO ORDENADA #####\n", i+1);
-        bubbleSort(&mao_aux);
-        exibeMao(&mao_aux);
-
-        mao_aux = mao; // atribui a mão embaralhada novamente para reordenar
-
-        insertSort(&mao_aux);
-        exibeMao(&mao_aux);
+        imprimeResultados(mao, i);
     }
-    
     fclose(arquivo);
 }
 
