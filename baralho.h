@@ -43,5 +43,6 @@ void modo_arquivo();
 void bubbleSort(Hand *mao);
 void insertSort(Hand *mao);
 void selectionSort(Hand *mao);
+void shellSort(Hand *mao);
 
 #endif

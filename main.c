@@ -1,6 +1,9 @@
 #include "baralho.h"
 
 int main(){
+
+    int comparacoes = 0, movimentacoes = 0;
+    double tempo_gasto;
     
     printf("\nModo de execução:\n");
     printf("\n1- Interativo\n2- Por arquivo\n\nQual opção? ");
