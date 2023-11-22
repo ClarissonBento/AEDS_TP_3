@@ -1,5 +1,12 @@
 #include "baralho.h"
 
+#define COR_VERDE "\033[32m"
+#define COR_AMARELO "\033[33m"
+#define COR_VERMELHO "\033[31m"
+#define COR_AZUL "\033[34m"
+#define COR_PRETO "\033[30m"
+#define COR_RESET "\033[0m"
+
 void criaBaralho(Baralho *baralho){
     int index = 0;
 
@@ -80,12 +87,12 @@ void exibeBaralho(Baralho *baralho){
 
 // Exibe as 10 cartas atualmente na mão
 void exibeMao(Hand *mao){
-    char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
+    char *cores[] = {COR_VERDE "Verde", COR_AMARELO "Amarelo", COR_VERMELHO "Vermelho", COR_AZUL "Azul", COR_RESET "Preto"};
     char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
 
     for (int i = 0; i < MAO; i++){
 
-        printf("[%.2i] - %s %s\n", mao->cartas[i].i_carta, valor[mao->cartas[i].numero], cores[mao->cartas[i].cor]);
+        printf("[%.2i] - %s %s%s\n", mao->cartas[i].i_carta, valor[mao->cartas[i].numero], cores[mao->cartas[i].cor], COR_RESET);
     }
 }
 
