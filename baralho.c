@@ -6,6 +6,7 @@
 #define COR_AZUL "\033[34m"
 #define COR_PRETO "\033[30m"
 #define COR_RESET "\033[0m"
+#define COR_CIANO "\033[36m"
 
 void criaBaralho(Baralho *baralho){
     int index = 0;
@@ -100,9 +101,9 @@ void imprimeResultados(Hand mao, int N){
     Hand mao_aux;
     mao_aux = mao; // Uma copia para não perder a mão original
 
-    printf("\n################################");
-    printf("\n####### %iª MÃO DE CARTAS #######\n", N+1);
-    printf("################################\n");
+    printf(COR_CIANO "\n################################");
+    printf(COR_CIANO "\n####### %iª MÃO DE CARTAS #######\n", N+1);
+    printf(COR_CIANO "################################\n" COR_RESET);
 
     printf("\nMão incial:\n");
     exibeMao(&mao_aux);
