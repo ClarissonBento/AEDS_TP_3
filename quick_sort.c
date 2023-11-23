@@ -7,6 +7,7 @@ int i,j;
  if (Esq < j) Ordena(Esq, j, mao);
  if (i < Dir) Ordena(i, Dir, mao);
 }
+
 void QuickSort(Hand *mao, int n)
 {
  Ordena(0, n-1, mao);
