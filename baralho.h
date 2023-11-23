@@ -1,4 +1,4 @@
-#ifndef BARALHO_H
+#ifndef BARALHO_H 
 #define BARALHO_H
 
 #define NUM_CARTAS 56
@@ -52,5 +52,6 @@ void bubbleSort(Hand *mao);
 void insertSort(Hand *mao);
 void selectionSort(Hand *mao);
 void shellSort(Hand *mao);
-
+void quicksort(Hand *mao);
+void ordena(int Esq, int Dir, Hand *mao)
 #endif
