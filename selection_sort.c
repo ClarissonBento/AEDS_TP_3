@@ -18,12 +18,13 @@ void selectionSort(Hand *mao){
 
             if (mao->cartas[j].i_carta < mao->cartas[Min].i_carta){
                 Min = j;
-                aux = mao->cartas[Min];
-                mao->cartas[Min] = mao->cartas[i];
-                mao->cartas[i] = aux;
-                movimentacoes++;
             }
         }
+        aux = mao->cartas[Min];
+        mao->cartas[Min] = mao->cartas[i];
+        mao->cartas[i] = aux;
+
+        movimentacoes++;
     }
 
     end_time = clock();
