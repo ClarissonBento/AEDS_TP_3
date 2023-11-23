@@ -1,5 +1,5 @@
 #include "baralho.h"
-
+/*
 void Ordena(int Esq, int Dir, Hand *mao)
 {
 int i,j;
@@ -14,7 +14,7 @@ void QuickSort(Hand *mao, int n)
 void Particao(int Esq, int Dir, int *i, int *j, Hand *mao){
     Hand pivo, aux;
     *i = Esq; *j = Dir;
-    pivo = mao[(*i + *j)/2]; /* obtem o pivo x */
+    pivo = mao[(*i + *j)/2]; // obtem o pivo x
     do
     {
         while (pivo.Chave > mao[*i].Chave) (*i)++;
@@ -25,3 +25,4 @@ void Particao(int Esq, int Dir, int *i, int *j, Hand *mao){
                 }
  } while (*i <= *j);
 }
+*/

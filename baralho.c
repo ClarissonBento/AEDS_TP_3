@@ -113,6 +113,11 @@ void imprimeResultados(Hand mao, int N){
 
     mao_aux = mao; // Atribui a mão embaralhada novamente para reordenar
 
+    selectionSort(&mao_aux);
+    exibeMao(&mao_aux);
+
+    mao_aux = mao; // Atribui a mão embaralhada novamente para reordenar
+
     insertSort(&mao_aux);
     exibeMao(&mao_aux);
     
