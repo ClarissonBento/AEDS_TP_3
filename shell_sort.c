@@ -16,11 +16,16 @@ void shellSort(Hand *mao){
         for (i = h; i < MAO; i++){
             aux = mao->cartas[i];
             j = i;
+            comparacoes++;
+
             while (mao->cartas[j - h].i_carta > aux.i_carta){
                 mao->cartas[j] = mao->cartas[j - h];
                 j -= h;
-                if (j < h) break; 
+                if (j < h) break;
+                comparacoes++;
+                movimentacoes++;
             }
+            
             mao->cartas[j] = aux;
         }
     } while (h != 1);

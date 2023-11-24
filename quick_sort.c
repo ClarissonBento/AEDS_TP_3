@@ -1,29 +1,54 @@
 #include "baralho.h"
-/*
-void Ordena(int Esq, int Dir, Hand *mao)
-{
-int i,j;
- Particao(Esq, Dir, &i, &j, mao);
- if (Esq < j) Ordena(Esq, j, mao);
- if (i < Dir) Ordena(i, Dir, mao);
+
+void particao(int Esq, int Dir, int *i, int *j, Hand *mao, int *comparacoes, int *movimentacoes){
+    Carta pivo, aux;
+    *i = Esq;
+    *j = Dir;
+
+    pivo = mao->cartas[(*i + *j) / 2]; // obtem o pivo x
+    do {
+        while (pivo.i_carta > mao->cartas[*i].i_carta){
+            (*i)++;
+            (*comparacoes)++;
+        }
+        while (pivo.i_carta < mao->cartas[*j].i_carta){
+            (*j)--;
+            (*comparacoes)++;
+        }
+
+        if (*i <= *j) {
+            aux = mao->cartas[*i];
+            mao->cartas[*i] = mao->cartas[*j];
+            mao->cartas[*j] = aux;
+            (*i)++;
+            (*j)--;
+            (*movimentacoes)++;
+        }
+
+    } while (*i <= *j);
 }
 
-void QuickSort(Hand *mao, int n)
-{
- Ordena(0, n-1, mao);
+void ordena(int Esq, int Dir, Hand *mao, int *comparacoes, int *movimentacoes){
+    int i, j;
+
+    particao(Esq, Dir, &i, &j, mao, comparacoes, movimentacoes);
+    if (Esq < j) ordena(Esq, j, mao, comparacoes, movimentacoes);
+    if (i < Dir) ordena(i, Dir, mao, comparacoes, movimentacoes);
 }
-void Particao(int Esq, int Dir, int *i, int *j, Hand *mao){
-    Hand pivo, aux;
-    *i = Esq; *j = Dir;
-    pivo = mao[(*i + *j)/2]; // obtem o pivo x
-    do
-    {
-        while (pivo.Chave > mao[*i].Chave) (*i)++;
-        while (pivo.Chave < mao[*j].Chave) (*j)--;
-            if (*i <= *j) {
-                    aux = mao[*i]; mao[*i] = mao[*j]; mao[*j] = aux;
-                    (*i)++; (*j)--;
-                }
- } while (*i <= *j);
+
+void quickSort(Hand *mao){
+    clock_t start_time, end_time;
+    double elapsed_time;
+    start_time = clock();
+
+    int comparacoes = 0, movimentacoes = 0;
+
+    ordena(0, MAO - 1, mao, &comparacoes, &movimentacoes);
+
+    end_time = clock();
+    elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("\nQUICK SORT\n");
+    printf("Tempo gasto: %f segundos\n", elapsed_time);
+    printf("Comparações: %i\n", comparacoes);
+    printf("Movimentações: %i\n\n", movimentacoes);
 }
-*/

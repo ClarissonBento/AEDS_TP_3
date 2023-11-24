@@ -126,4 +126,9 @@ void imprimeResultados(Hand mao, int N){
     shellSort(&mao_aux);
     exibeMao(&mao_aux);
 
+    mao_aux = mao; // Atribui a mão embaralhada novamente para reordenar
+
+    quickSort(&mao_aux);
+    exibeMao(&mao_aux);
+
 }

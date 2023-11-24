@@ -19,7 +19,7 @@ void bubbleSort(Hand *mao){
             }
         }
     }
-
+    
     end_time = clock();
     elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
     printf("\nBOLHA MELHORADO\n");
