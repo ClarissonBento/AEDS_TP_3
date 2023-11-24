@@ -1,4 +1,4 @@
-#include "baralho.h"
+#include "headers/uno.h"
 
 void modo_interativo(){
     Baralho baralho;

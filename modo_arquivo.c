@@ -1,10 +1,10 @@
-#include "baralho.h"
+#include "headers/uno.h"
 
 int extraiTipo(char tipo[20]);
 
 void modo_arquivo(){
     FILE *arquivo;
-    arquivo = fopen("TESTE.txt", "r");
+    arquivo = fopen("ENTRADA.txt", "r");
 
     Hand mao;
 

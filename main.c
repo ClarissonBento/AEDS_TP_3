@@ -1,7 +1,7 @@
-#include "baralho.h"
+#include "headers/uno.h"
 
 int main(){
-    
+
     printf("\nModo de execução:\n");
     printf("\n1- Interativo\n2- Por arquivo\n\nQual opção? ");
     int aux;
@@ -10,7 +10,7 @@ int main(){
         modo_interativo();
     }else if (aux == 2){
         modo_arquivo();
-    }else printf("\nInválido bobão\n");
+    }else printf("\nOpção inválida\n");
 
 
     

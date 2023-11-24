@@ -1,12 +1,4 @@
-#include "baralho.h"
-
-#define COR_VERDE "\033[32m"
-#define COR_AMARELO "\033[33m"
-#define COR_VERMELHO "\033[31m"
-#define COR_AZUL "\033[34m"
-#define COR_PRETO "\033[30m"
-#define COR_RESET "\033[0m"
-#define COR_CIANO "\033[36m"
+#include "headers/baralho.h"
 
 void criaBaralho(Baralho *baralho){
     int index = 0;
@@ -36,12 +28,6 @@ void criaBaralho(Baralho *baralho){
 
 }
 
-void trocar(Carta *a, Carta *b) {
-    Carta aux = *a;
-    *a = *b;
-    *b = aux;
-}
-
 // Tentando usar o algoritmo de knuth pra randomizar (fisher-yates)
 void embaralhaArray(Baralho *baralho, int tamanho) {
     srand(time(NULL));
@@ -56,25 +42,6 @@ void embaralhaArray(Baralho *baralho, int tamanho) {
     }
 }
 
-// Compra 10 cartas pra mão
-void puxaDez(Baralho *baralho, Hand *mao){
-
-    if (baralho->num_cartas < 10){
-        printf("Cartas insuficientes no baralho\n");
-        exit(0);
-    }
-
-    for (int i = 0; i < MAO; i++){
-        mao->cartas[i] = baralho->cartas[i];
-
-        for (int j = i; j < baralho->num_cartas - 1; j++) {
-            baralho->cartas[j] = baralho->cartas[j + 1];
-        }
-        baralho->num_cartas--; // Atualizar o número de cartas no baralho
-    }
-    
-}
-
 // Exibe as cartas atualmente no baralho
 void exibeBaralho(Baralho *baralho){
     char *cores[] = {"Verde", "Amarelo", "Vermelho", "Azul", "Preto"};
@@ -84,51 +51,4 @@ void exibeBaralho(Baralho *baralho){
 
         printf("[%.2i] - %s %s\n", baralho->cartas[i].i_carta, valor[baralho->cartas[i].numero], cores[baralho->cartas[i].cor]);
     }
-}
-
-// Exibe as 10 cartas atualmente na mão
-void exibeMao(Hand *mao){
-    char *cores[] = {COR_VERDE "Verde", COR_AMARELO "Amarelo", COR_VERMELHO "Vermelho", COR_AZUL "Azul", COR_RESET "Preto"};
-    char *valor[] = {"0","1","2","3","4","5","6","7","8","9","Pular","Voltar","+2","+4","+4","Coringa","Coringa"};
-
-    for (int i = 0; i < MAO; i++){
-
-        printf("[%.2i] - %s %s%s\n", mao->cartas[i].i_carta, valor[mao->cartas[i].numero], cores[mao->cartas[i].cor], COR_RESET);
-    }
-}
-
-void imprimeResultados(Hand mao, int N){
-    Hand mao_aux;
-    mao_aux = mao; // Uma copia para não perder a mão original
-
-    printf(COR_CIANO "\n################################");
-    printf(COR_CIANO "\n####### %iª MÃO DE CARTAS #######\n", N+1);
-    printf(COR_CIANO "################################\n" COR_RESET);
-
-    printf("\nMão incial:\n");
-    exibeMao(&mao_aux);
-
-    bubbleSort(&mao_aux);
-    exibeMao(&mao_aux);
-
-    mao_aux = mao; // Atribui a mão embaralhada novamente para reordenar
-
-    selectionSort(&mao_aux);
-    exibeMao(&mao_aux);
-
-    mao_aux = mao; // Atribui a mão embaralhada novamente para reordenar
-
-    insertSort(&mao_aux);
-    exibeMao(&mao_aux);
-    
-    mao_aux = mao; // Atribui a mão embaralhada novamente para reordenar
-
-    shellSort(&mao_aux);
-    exibeMao(&mao_aux);
-
-    mao_aux = mao; // Atribui a mão embaralhada novamente para reordenar
-
-    quickSort(&mao_aux);
-    exibeMao(&mao_aux);
-
 }

@@ -1,4 +1,4 @@
-#include "baralho.h"
+#include "headers/uno.h"
 
 void particao(int Esq, int Dir, int *i, int *j, Hand *mao, int *comparacoes, int *movimentacoes){
     Carta pivo, aux;
