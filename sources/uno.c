@@ -1,4 +1,4 @@
-#include "headers/uno.h"
+#include "../headers/uno.h"
 
 // Compra 10 cartas pra mão
 void puxaDez(Baralho *baralho, Hand *mao){

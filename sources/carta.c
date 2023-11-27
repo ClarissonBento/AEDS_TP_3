@@ -1,4 +1,4 @@
-#include "headers/carta.h"
+#include "../headers/carta.h"
 
 void trocar(Carta *a, Carta *b) {
     Carta aux = *a;

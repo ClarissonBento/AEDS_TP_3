@@ -1,4 +1,4 @@
-#include "headers/baralho.h"
+#include "../headers/baralho.h"
 
 void criaBaralho(Baralho *baralho){
     int index = 0;

@@ -1,4 +1,4 @@
-#include "headers/uno.h"
+#include "../headers/uno.h"
 
 // Esse é o bolha melhorado
 void bubbleSort(Hand *mao){

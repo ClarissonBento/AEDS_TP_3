@@ -1,4 +1,4 @@
-#include "headers/uno.h"
+#include "../headers/uno.h"
 
 void selectionSort(Hand *mao){
 

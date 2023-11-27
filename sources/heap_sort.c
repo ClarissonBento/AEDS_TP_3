@@ -1,4 +1,5 @@
-#include "headers/uno.h"
+#include "../headers/uno.h"
+
 void heapSort( Hand *mao){
     
 }
@@ -27,4 +28,3 @@ void refaz(int esq,int dir,Hand *mao){
 
 
 }
-
