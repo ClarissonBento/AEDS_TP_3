@@ -21,6 +21,6 @@ void selectionSort(Hand *mao);
 void insertSort(Hand *mao);
 void shellSort(Hand *mao);
 void quickSort(Hand *mao);
-void heapSort(Hand *mao);
+void heapSort(Hand *mao, int N);
 
 #endif

@@ -66,7 +66,7 @@ void imprimeResultados(Hand mao, int N){
 
     mao_aux = mao; // Atribui a mão embaralhada novamente para reordenar
 
-    heapSort(&mao_aux);
+    heapSort(&mao_aux, MAO);
     exibeMao(&mao_aux);
 
 }
