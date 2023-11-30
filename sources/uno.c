@@ -4,7 +4,7 @@
 void puxaDez(Baralho *baralho, Hand *mao){
 
     if (baralho->num_cartas < 10){
-        printf("Cartas insuficientes no baralho\n");
+        printf(COR_VERMELHO"\nCartas insuficientes no baralho\n" COR_RESET);
         exit(0);
     }
 
