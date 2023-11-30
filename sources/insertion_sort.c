@@ -13,14 +13,18 @@ void insertSort(Hand *mao){
         aux = mao->cartas[i];
         j = i - 1;
 
+        comparacoes++;
+
         while ((j >= 0) && (mao->cartas[j].i_carta > aux.i_carta)){
             mao->cartas[j+1] = mao->cartas[j];
             j--;
+            
+            movimentacoes += 2;
             comparacoes++;
-            movimentacoes++;
         }
-        mao->cartas[j+1] = aux;
         
+        mao->cartas[j+1] = aux;
+        movimentacoes++;
     }
 
     end_time = clock();
