@@ -24,7 +24,7 @@ void selectionSort(Hand *mao){
         mao->cartas[Min] = mao->cartas[i];
         mao->cartas[i] = aux;
 
-        movimentacoes++;
+        movimentacoes =+ 2;
     }
 
     end_time = clock();
